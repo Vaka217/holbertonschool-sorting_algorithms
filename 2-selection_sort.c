@@ -19,7 +19,7 @@ void selection_sort(int *array, size_t size)
 		}
 
 		if (small != cnt)
-		{	
+		{
 			swap_s(array, small, cnt, size);
 		}
 	}
