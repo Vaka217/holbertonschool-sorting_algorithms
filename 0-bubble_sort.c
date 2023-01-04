@@ -1,5 +1,11 @@
 #include "sort.h"
-
+/**
+ * bubble_sort - implements a bubble sort with recursion :)
+ *
+ *@array: array
+ *@size: size of array
+ *
+ */
 void bubble_sort(int *array, size_t size)
 {
 	size_t status = 0, cnt;
@@ -17,7 +23,12 @@ void bubble_sort(int *array, size_t size)
 		return;
 	bubble_sort(array, size);
 }
-
+/**
+ * swap - swapm two elements of an array
+ *
+ *@array: array
+ *@cnt: array counter
+ */
 void swap(int *array, size_t cnt)
 {
 	int tmp;

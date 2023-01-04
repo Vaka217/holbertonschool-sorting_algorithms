@@ -1,9 +1,10 @@
 #include "sort.h"
-
 /**
-  *
-  */
-
+ * insertion_sort_list - sort a linked list by insertion
+ *
+ *@list: list_t node.
+ *
+ */
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *current, *crtprev, *tmp;
