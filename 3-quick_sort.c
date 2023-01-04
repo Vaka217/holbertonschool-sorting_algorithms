@@ -5,40 +5,39 @@
   *
   */
 
-void quick_sorts(int **array, size_t low, size_t high)
+void quick_sorts(int **array, size_t low, size_t high, size_t size)
 {
 	size_t part;
 
 	if (low < high)
 	{
-		part = partition(*array, low, high);
+		part = partition(*array, low, high, size);
 		if (part == 0)
 			part = high + 1;
-		print_array(*array, 10);
-		quick_sorts(array, low, part - 1);
-		quick_sorts(array, part + 1, high);
+		quick_sorts(array, low, part - 1, size);
+		quick_sorts(array, part + 1, high, size);
 	}
 }
 
 void quick_sort(int *array, size_t size)
 {
-	quick_sorts(&array, 0, size - 1);
+	quick_sorts(&array, 0, size - 1, size);
 }
-size_t partition(int *array, size_t low, size_t high)
+size_t partition(int *array, size_t low, size_t high, size_t size)
 {
 	size_t j, i = low - 1;
 	int pivot = array[high], tmp;
 
-	for (j = low; j <= high - 1; j++)
+	for (j = low; j < high; j++)
 	{
 		if (array[j] < pivot)
 		{
 			i++;
-			tmp = array[j];
-			array[j] = array[i];
-			array[i] = tmp;
+			if (array[i] != array[j])
+				swap_s(array, j, i, size);
 		}
 	}
-	swap_s(array, high, i + 1);
+	if (array[high] != array[i + 1])
+		swap_s(array, high, i + 1, size);
 	return (i + 1);
 }

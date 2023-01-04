@@ -19,16 +19,16 @@ void selection_sort(int *array, size_t size)
 
 		if (small != cnt)
 		{	
-			swap_s(array, small, cnt);
-			print_array(array, size);
+			swap_s(array, small, cnt, size);
 		}
 	}
 }
-void swap_s(int *array, size_t small, size_t cnt)
+void swap_s(int *array, size_t small, size_t cnt, size_t size)
 {
 	int tmp;
 
 	tmp = array[cnt];
 	array[cnt] = array[small];
 	array[small] = tmp;
+	print_array(array, size);
 }
