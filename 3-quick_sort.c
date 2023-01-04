@@ -14,6 +14,8 @@ void quick_sorts(int **array, size_t low, size_t high, size_t size)
 		part = partition(*array, low, high, size);
 		if (part == 0)
 			part = high + 1;
+		if (part == -1)
+			return;
 		quick_sorts(array, low, part - 1, size);
 		quick_sorts(array, part + 1, high, size);
 	}
@@ -21,11 +23,12 @@ void quick_sorts(int **array, size_t low, size_t high, size_t size)
 
 void quick_sort(int *array, size_t size)
 {
-	quick_sorts(&array, 0, size - 1, size);
+	if (array && size > 0)
+		quick_sorts(&array, 0, size - 1, size);
 }
 size_t partition(int *array, size_t low, size_t high, size_t size)
 {
-	size_t j, i = low - 1;
+	size_t j, i = low - 1, equal = 0;
 	int pivot = array[high];
 
 	for (j = low; j < high; j++)
@@ -35,8 +38,12 @@ size_t partition(int *array, size_t low, size_t high, size_t size)
 			i++;
 			if (array[i] != array[j])
 				swap_s(array, j, i, size);
+			if (array(j) == array(j + 1))
+				equal++;
 		}
 	}
+	if (equal == size - 1)
+		return (-1);
 	if (array[high] != array[i + 1])
 		swap_s(array, high, i + 1, size);
 	return (i + 1);
