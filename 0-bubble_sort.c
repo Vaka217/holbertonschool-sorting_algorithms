@@ -10,6 +10,9 @@ void bubble_sort(int *array, size_t size)
 {
 	size_t status = 0, cnt;
 
+	if (!array)
+		return;
+
 	for (cnt = 0; cnt < size - 1; cnt++)
 	{
 		if (array[cnt] > array[cnt + 1])
