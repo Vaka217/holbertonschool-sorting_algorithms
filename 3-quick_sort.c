@@ -7,7 +7,7 @@
 
 void quick_sorts(int **array, size_t low, size_t high, size_t size)
 {
-	size_t part;
+	int part;
 
 	if (low < high)
 	{
@@ -38,7 +38,7 @@ size_t partition(int *array, size_t low, size_t high, size_t size)
 			i++;
 			if (array[i] != array[j])
 				swap_s(array, j, i, size);
-			if (array(j) == array(j + 1))
+			if (array[j] == array[j + 1])
 				equal++;
 		}
 	}
