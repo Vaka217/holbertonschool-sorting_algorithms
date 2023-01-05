@@ -62,9 +62,9 @@ size_t partition(int *array, size_t low, size_t high, size_t size)
 			i++;
 			if (array[i] != array[j])
 				swap_s(array, j, i, size);
-			if (array[j] == array[j + 1])
-				equal++;
 		}
+		if (array[j] == array[j + 1])
+			equal++;
 	}
 	if (equal == size - 1)
 		return (-1);
