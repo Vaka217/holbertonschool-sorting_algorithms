@@ -1,7 +1,13 @@
 #include "sort.h"
 #include <stdio.h>
 #include "2-selection_sort.c"
+
 /**
+  * quick_sorts - sort an array with quick sort.
+  * @array: Pointer to array to sort
+  * @low: Lowest index
+  * @high: Highest index
+  * @size: Size of the array
   *
   */
 
@@ -21,11 +27,29 @@ void quick_sorts(int **array, size_t low, size_t high, size_t size)
 	}
 }
 
+/**
+  * quick_sort - Acts like main function.
+  * @array: Array to sort
+  * @size: Size of the array
+  *
+  */
+
 void quick_sort(int *array, size_t size)
 {
 	if (array && size > 0)
 		quick_sorts(&array, 0, size - 1, size);
 }
+
+/**
+  * partition - Sorts a certain partition with given indexs.
+  * @array: Array to partitionate
+  * @low: Lowest index
+  * @high: Highest index
+  * @size: Size of the array
+  *
+  * Return: The index of the pivot
+  */
+
 size_t partition(int *array, size_t low, size_t high, size_t size)
 {
 	size_t j, i = low - 1, equal = 0;
