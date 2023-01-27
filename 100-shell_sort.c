@@ -1,7 +1,9 @@
 #include "sort.h"
 
 /**
-  *
+  * shell_sort - sorts an array of integers using the Shell sort.
+  * @array: Array of integers to sort
+  * @size: Size of the array
   */
 
 void shell_sort(int *array, size_t size)
